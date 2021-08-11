@@ -1,20 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <div>
-    <h2 class="font-bold text-red-600">Clase</h2>
+  <div className="flex flex-col">
+    <div className="flex min-h-screen flex-col flex-wrap md:flex-row">
+      <div
+        className="max-h-[50vh] overflow-auto md:sticky md:top-0 md:max-h-screen"
+      >
+        <SidebarPanel />
+      </div>
+
+      <div className="max-h-[50vh] flex-1 overflow-auto pb-10 md:max-h-full">
+        <div className="border-t border-dashed border-zinc-600 md:hidden" />
+        <h2>Preview</h2>
+      </div>
+    </div>
   </div>
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import SidebarPanel from "./components/SidebarPanel.vue";
+import { onMounted } from "vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+onMounted(() => {
+  console.log("mounted");
+});
 </script>
 
 <style>
