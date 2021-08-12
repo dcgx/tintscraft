@@ -21,7 +21,7 @@
           </section>
 
           <section className="border-t border-zinc-600/60 pt-4">
-            <h2>Section 1</h2>
+            <PreviewSettings />
           </section>
         </div>
       </div>
@@ -34,4 +34,5 @@
 <script setup>
 import ChangeColor from "./ChangeColor.vue"; 
 import ChangeWeight from "./ChangeWeight.vue"; 
+import PreviewSettings from "./PreviewSettings.vue"; 
 </script>

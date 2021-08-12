@@ -12,10 +12,11 @@
     "@ckpack/vue-color": "^1.5.0",
     "@heroicons/vue": "^2.1.1",
     "@vue-hero-icons/solid": "^1.7.2",
+    "@vueform/toggle": "^2.1.4",
     "core-js": "^3.8.3",
     "vue": "^3.4.15",
     "vue-color-input": "^1.0.8",
-    "vue-slider-component": "^3.2.24"
+    "vue-slider-component": "^4.1.0-beta.7"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
