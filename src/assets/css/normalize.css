@@ -194,6 +194,7 @@ Remove the inheritance of text transform in Edge and Firefox.
 button,
 select {
   text-transform: none;
+  background: transparent;
 }
 
 /*

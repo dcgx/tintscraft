@@ -4,19 +4,20 @@
       <div
         className="max-h-[50vh] overflow-auto md:sticky md:top-0 md:max-h-screen"
       >
-        <SidebarPanel />
+        <Sidebar />
       </div>
 
       <div className="max-h-[50vh] flex-1 overflow-auto pb-10 md:max-h-full">
         <div className="border-t border-dashed border-zinc-600 md:hidden" />
-        <h2>Preview</h2>
+        <Preview />
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import SidebarPanel from "./components/SidebarPanel.vue";
+import Sidebar from "./components/Sidebar.vue";
+import Preview from "./components/Preview.vue";
 import { onMounted } from "vue";
 
 onMounted(() => {
