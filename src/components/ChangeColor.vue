@@ -35,7 +35,7 @@ import { useAppStore } from "@/stores/app";
 import { randomColor } from "@/utils/colors";
 
 const appStore = useAppStore();
-const colorCode = ref("#000000");
+const colorCode = ref(appStore.color.hex);
 
 const onGenerateRandomColor = () => {
   const color = randomColor();
