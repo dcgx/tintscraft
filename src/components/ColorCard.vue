@@ -1,11 +1,11 @@
 <template>
   <div class="flex-1">
-    <div class="group relative min-w-[180px] p-4" style="background: #bb3bfa">
-      <div className="text-sm text-left" style="color: rgb(24, 24, 27)">
-        40%
+    <div class="group relative min-w-[180px] p-4" :style="{ background: hex }">
+      <div className="text-sm text-left" :style="{ color: textColor }">
+        {{ weight }}%
       </div>
       <div class="mt-2 flex items-center justify-between">
-        <div class="text-lg" style="color: rgb(24, 24, 27)">#f5e4fe</div>
+        <div class="text-lg" :style="{ color: textColor }">{{ hex }}</div>
         <div class="opacity-50 group-hover:opacity-100 md:opacity-0">
           <button v-tooltip="'Copy'">
             <svg
@@ -13,7 +13,7 @@
               fill="none"
               viewBox="0 0 24 24"
               stroke-width="1.5"
-              stroke="currentColor"
+              :stroke="textColor"
               class="w-6 h-6"
             >
               <path
@@ -30,6 +30,21 @@
 </template>
 
 <script setup>
-import { DocumentDuplicateIcon } from "@heroicons/vue/24/solid";
+import { defineProps } from "vue";
 import { vTooltip } from "floating-vue";
+
+const props = defineProps({
+  hex: {
+    type: String,
+    required: true,
+  },
+  weight: {
+    type: Number,
+    required: true,
+  },
+  textColor: {
+    type: String,
+    required: true,
+  },
+});
 </script>

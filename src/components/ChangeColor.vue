@@ -5,7 +5,9 @@
       <div>
         <ColorInput
           class="absolute left-2 top-2 z-10"
-          v-model="colorCode"
+          :modelValue="colorCode"
+          @update:modelValue="onInputColor"
+          position="bottom right"
           format="hex"
         />
       </div>
@@ -16,7 +18,7 @@
       <div
         class="cursor-pointer flex items-center justify-center absolute top-0 right-0 bottom-0 w-9"
       >
-        <button class="bg-transparent">
+        <button v-tooltip="'Generate random color'" class="bg-transparent px-2 py-1 hover:bg-zinc-700 rounded-lg" @click="onGenerateRandomColor">
           <ArrowPathIcon class="h-6 w-6 text-slate-500" />
         </button>
       </div>
@@ -29,5 +31,21 @@ import { ref } from "vue";
 import ColorInput from "vue-color-input";
 import { ArrowPathIcon } from "@heroicons/vue/24/solid";
 
+import { useAppStore } from "@/stores/app";
+import { randomColor } from "@/utils/colors";
+
+const appStore = useAppStore();
 const colorCode = ref("#000000");
+
+const onGenerateRandomColor = () => {
+  const color = randomColor();
+  console.log(color, "RANDOM");
+  colorCode.value = color;
+  appStore.setColor({ hex: color });
+};
+
+const onInputColor = (color) => {
+  colorCode.value = color;
+  appStore.setColor({ hex: color });
+};
 </script>

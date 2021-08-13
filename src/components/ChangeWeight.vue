@@ -7,9 +7,14 @@
         v-model="range"
         size="small"
         controls
+        @update:model-value="onUpdateNumberInput"
       ></vue-number-input>
     </div>
-    <vue-slider class="mt-4" v-model="range"></vue-slider>
+    <vue-slider
+      class="mt-4"
+      v-model="range"
+      @change="onChangeSlider"
+    ></vue-slider>
   </div>
 </template>
 
@@ -19,15 +24,30 @@ import VueNumberInput from "@chenfengyuan/vue-number-input";
 import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/default.css";
 
+import { useAppStore } from "@/stores/app";
+
 export default {
   components: {
     VueNumberInput,
     VueSlider,
   },
   setup() {
-    const range = ref(0);
+    const appStore = useAppStore();
+
+    const range = ref(appStore.weight || 1); 
+    const onChangeSlider = (value) => {
+      range.value = value;
+      appStore.setWeight(value);
+    };
+
+    const onUpdateNumberInput = (value) => {
+      range.value = value;
+      appStore.setWeight(value);
+    };
     return {
       range,
+      onUpdateNumberInput,
+      onChangeSlider,
     };
   },
 };

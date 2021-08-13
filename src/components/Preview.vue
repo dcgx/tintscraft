@@ -11,19 +11,24 @@
         'flex-col': isOneline,
       }"
     >
-      <ColorCard />
-      <ColorCard />
-      <ColorCard />
-      <ColorCard />
-      <ColorCard />
+      <ColorCard
+        v-for="(color, index) in appStore.colors"
+        :key="index"
+        :hex="color.hexString()"
+        :weight="color.weight"
+        :textColor="color.getBrightness() >= 50 ? '#18181b' : '#ffffff'"
+      />
     </main>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
+import { useAppStore } from "@/stores/app";
 import ColorCard from "./ColorCard.vue";
 
 const isCardGap = ref(true);
 const isOneline = ref(false);
+
+const appStore = useAppStore();
 </script>
