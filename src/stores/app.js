@@ -10,6 +10,8 @@ export const useAppStore = defineStore("app", {
     weight: 10,
     hasCardGap: false,
     hasCardOneline: false,
+    isIndicator: false,
+    copyWithHash: false,
   }),
 
   actions: {
@@ -36,6 +38,12 @@ export const useAppStore = defineStore("app", {
     },
     setHasCardOneline(hasCardOneline) {
       this.hasCardOneline = hasCardOneline;
+    },
+    setIsIndicator(isIndicator) {
+      this.isIndicator = isIndicator;
+    },
+    setCopyWithHash(copyWithHash) {
+      this.copyWithHash = copyWithHash;
     },
   },
 });

@@ -6,7 +6,7 @@
         v-tooltip="'Copy all color codes'"
         class="bg-slate-800 text-slate-400 px-5 py-2 rounded-md flex items-center justify-center gap-2 hover:bg-slate-700"
       >
-        Copy All
+        {{ isCopied ? "Copied!" : "Copy all" }}
 
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -37,6 +37,7 @@
         :key="index"
         :hex="color.hexString()"
         :weight="color.weight"
+        :copyWithHash="appStore.copyWithHash"
         :textColor="color.getBrightness() >= 50 ? '#18181b' : '#ffffff'"
       />
     </main>
@@ -50,9 +51,16 @@ import ColorCard from "./ColorCard.vue";
 
 const appStore = useAppStore();
 
+const isCopied = ref(false);
+
 const copyAllCodeColors = () => {
-  const colors = appStore.colors.map((color) => color.hexString());
-  const text = colors.join(",")
+  const copyWithHash = appStore.copyWithHash;
+  const colors = appStore.colors.map((color) => {
+    const hex = color.hexString();
+    return copyWithHash ? `${hex}` : hex.slice(1);
+  });
+  const text = colors.join(",");
   navigator.clipboard.writeText(text);
+  isCopied.value = true;
 };
 </script>

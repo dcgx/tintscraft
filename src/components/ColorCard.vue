@@ -7,7 +7,7 @@
       <div class="mt-2 flex items-center justify-between">
         <div class="text-lg" :style="{ color: textColor }">{{ hex }}</div>
         <div class="opacity-50 group-hover:opacity-100 md:opacity-0">
-          <button v-tooltip="'Copy'">
+          <button v-tooltip="'Copy'" @click="copyHexToClipboard">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -46,5 +46,14 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  copyWithHash: {
+    type: Boolean,
+    required: true,
+  },
 });
+
+const copyHexToClipboard = () => {
+  let hex = props.copyWithHash ? props.hex : props.hex.slice(1);
+  navigator.clipboard.writeText(hex);
+};
 </script>
