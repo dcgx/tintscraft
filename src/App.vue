@@ -1,10 +1,10 @@
 <template>
-  <div className="flex flex-col">
-    <div className="flex min-h-screen flex-col flex-wrap md:flex-row">
+  <div className="flex ">
+    <div className="flex min-h-screen flex-wrap flex-col w-full max-w-screen-2xl mx-auto">
       <div
         className="max-h-[50vh] overflow-auto md:sticky md:top-0 md:max-h-screen"
       >
-        <Sidebar />
+        <Navbar />
       </div>
 
       <div className="max-h-[50vh] flex-1 overflow-auto pb-10 md:max-h-full">
@@ -16,7 +16,7 @@
 </template>
 
 <script setup>
-import Sidebar from "./components/Sidebar.vue";
+import Navbar from "./components/Navbar.vue";
 import Preview from "./components/Preview.vue";
 import { onMounted } from "vue";
 

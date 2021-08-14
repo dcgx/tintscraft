@@ -1,14 +1,14 @@
 <template>
   <nav
-    className="flex h-screen w-full flex-col border-none border-zinc-700 md:w-80 md:border-r md:border-solid lg:w-96"
+    className="flex w-full flex-col border-none border-zinc-700 md:border md:rounded-md pb-3 md:border-solid "
   >
     <div className="flex-1 px-5">
       <div className="py-4">
-        <h1 className="text-center text-2xl font-black text-zinc-100">
-          Tints and Shadows
-          <br />
-          Generator
+        <h1 className="text-center text-3xl font-black text-zinc-100">
+          Tintscraft
         </h1>
+
+        <span class="text-zinc-500"> Tool to generate tints and shadows of a color. <br /> </span>
       </div>
 
       <div>
@@ -26,13 +26,11 @@
         </div>
       </div>
     </div>
-
-    <div className="border-t border-zinc-700"></div>
   </nav>
 </template>
 
 <script setup>
-import ChangeColor from "./ChangeColor.vue"; 
-import ChangeWeight from "./ChangeWeight.vue"; 
-import PreviewSettings from "./PreviewSettings.vue"; 
+import ChangeColor from "./ChangeColor.vue";
+import ChangeWeight from "./ChangeWeight.vue";
+import PreviewSettings from "./PreviewSettings.vue";
 </script>

@@ -3,52 +3,60 @@
     <h3 className="text-xl font-bold text-slate-400 flex mb-2">
       Preview Settings
     </h3>
-    <div class="flex gap-2 text-slate-400 mt-3">
-      <Toggle v-model="isActiveCardPadding" @change="onChangeCardPadding" />
-      <label
-        id="card-padding-label"
-        class="cursor-pointer"
-        @click="onChangeCardPadding(!isActiveCardPadding)"
-        >Card Padding</label
-      >
-    </div>
 
-    <div class="flex gap-2 text-slate-400 mt-4">
-      <Toggle v-model="isActiveCardOneLine" @change="onChangeCardOneLine" />
-      <label
-        id="card-oneline-label"
-        class="cursor-pointer"
-        @click="onChangeCardOneLine(!isActiveCardOneLine)"
-        >Card One Line</label
-      >
-    </div>
+    <div class="grid grid-cols-2">
+      <div class="flex gap-2 text-slate-400 mt-3">
+        <Toggle v-model="isActiveCardPadding" @change="onChangeCardPadding" />
+        <label
+          id="card-padding-label"
+          class="cursor-pointer"
+          @click="onChangeCardPadding(!isActiveCardPadding)"
+          >Card Padding</label
+        >
+      </div>
 
-    <div class="text-left">
-      <div class="flex gap-2 text-slate-400 mt-4 mb-2">
-        <Toggle v-model="isActiveIndicator" @change="onChangeIndicator" />
+      <div class="flex gap-2 text-slate-400 mt-4">
+        <Toggle v-model="isActiveCardOneLine" @change="onChangeCardOneLine" />
         <label
           id="card-oneline-label"
           class="cursor-pointer"
-          @click="onChangeIndicator(!isActiveIndicator)"
-          >Indicator</label
+          @click="onChangeCardOneLine(!isActiveCardOneLine)"
+          >Card One Line</label
         >
       </div>
-      <span class="text-slate-500 text-sm">💡 mark the color you entered</span>
-    </div>
 
-    <div class="text-left">
-      <div class="flex gap-2 text-slate-400 mt-4 mb-2">
-        <Toggle v-model="isActiveCopyWithHash" @change="onChangeCopyWithHash" />
-        <label
-          id="card-oneline-label"
-          class="cursor-pointer"
-          @click="onChangeCopyWithHash(!isActiveCopyWithHash)"
-          >Copy with Hash</label
+      <div class="text-left">
+        <div class="flex gap-2 text-slate-400 mt-4 mb-2">
+          <Toggle v-model="isActiveIndicator" @change="onChangeIndicator" />
+          <label
+            id="card-oneline-label"
+            class="cursor-pointer"
+            @click="onChangeIndicator(!isActiveIndicator)"
+            >Indicator</label
+          >
+        </div>
+        <span class="text-slate-500 text-sm"
+          >💡 mark the color you entered</span
         >
       </div>
-      <span class="text-slate-500 text-sm"
-        >💡 include hash(#) when copying
-      </span>
+
+      <div class="text-left">
+        <div class="flex gap-2 text-slate-400 mt-4 mb-2">
+          <Toggle
+            v-model="isActiveCopyWithHash"
+            @change="onChangeCopyWithHash"
+          />
+          <label
+            id="card-oneline-label"
+            class="cursor-pointer"
+            @click="onChangeCopyWithHash(!isActiveCopyWithHash)"
+            >Copy with Hash</label
+          >
+        </div>
+        <span class="text-slate-500 text-sm"
+          >💡 include hash(#) when copying
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -84,6 +92,5 @@ const onChangeCopyWithHash = (value) => {
   isActiveCopyWithHash.value = value;
   appStore.setCopyWithHash(value);
 };
-
 </script>
 <style src="@vueform/toggle/themes/default.css"></style>
