@@ -31,9 +31,7 @@
   color: gray;
 }
 
-
-
 .color-input .box {
-  width: 24px;
-  height: 24px;
+  width: 24px !important;
+  height: 24px !important;
 }
