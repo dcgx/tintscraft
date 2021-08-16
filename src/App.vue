@@ -1,6 +1,8 @@
 <template>
   <div className="flex ">
-    <div className="flex min-h-screen flex-wrap flex-col w-full max-w-screen-2xl mx-auto">
+    <div
+      className="flex min-h-screen flex-wrap flex-col w-full max-w-screen-2xl mx-auto"
+    >
       <div
         className="max-h-[50vh] overflow-auto md:sticky md:top-0 md:max-h-screen"
       >
@@ -16,12 +18,17 @@
 </template>
 
 <script setup>
+import { onMounted } from "vue";
+import { useTitle, useFavicon } from '@vueuse/core'
 import Navbar from "./components/Navbar.vue";
 import Preview from "./components/Preview.vue";
-import { onMounted } from "vue";
+
+const title = useTitle()
+const favicon = useFavicon()
 
 onMounted(() => {
-  console.log("mounted");
+  title.value = "Tints - Color Palette Generator";
+  favicon.value = "/favicon.ico"
 });
 </script>
 
