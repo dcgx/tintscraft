@@ -5,6 +5,7 @@
       <div>
         <ColorInput
           class="absolute left-2 top-2 z-10"
+          style="position: absolute !important;"
           :modelValue="colorCode"
           @update:modelValue="onInputColor"
           position="bottom right"
